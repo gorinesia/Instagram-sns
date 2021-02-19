@@ -1,0 +1,50 @@
+<template>
+  <div class="post my-6">
+    <div class="user mb-2 ml-4 flex">
+      <div class="avatar mr-3">
+        <a><img :src="user.photoURL" class="w-8 h-8 rounded-full" alt=""></a>
+      </div>
+      <div class="user-name leading-loose text-sm">
+        <p class="font-bold">{{ username }}</p>
+      </div>
+    </div>
+    <div class="post-image w-full">
+      <img :src="post.image" alt="">
+    </div>
+    <div class="actions my-2 ml-4 flex">
+      <img src='/images/heart.svg' class="w-6 mr-3">
+      <p>0</p>
+    </div>
+    <div class="message mx-4 text-sm">
+      <p :id="textId" :class="{'text-2xl': isTextBig}">{{ post.text}}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      textId: 'textdayo',
+      isTextBig: false,
+      user: {
+        displayName: 'aki',
+        photoURL: '/images/post0.jpg'
+      },
+      post: {
+        text: '渋谷です',
+        image: '/images/post1.jpg'
+      }
+    }
+  },
+  computed: {
+    username() {
+      return this.user.displayName.charAt(0).toUpperCase() + this.user.displayName.slice(1)
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
