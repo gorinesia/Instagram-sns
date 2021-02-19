@@ -1,20 +1,25 @@
 <template>
   <div>
     <nuxt />
+    <div class="bottom-navigation bg-white flex fixed bottom-0 h-12 w-full border-t border-gray-300">
++     <div class="nav-item w-1/3 flex justify-center">
++       <a><img src="/images/home.svg" class="h-6 my-3"></a>
++     </div>
++     <div class="nav-item w-1/3 flex justify-center">
++       <a><img src="/images/follow.svg" class="h-6 my-3"></a>
++     </div>
++     <div class="nav-item w-1/3 flex justify-center">
++       <a><img src="/images/profile.svg" class="h-6 my-3"></a>
++     </div>
++   </div>
   </div>
 </template>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
 }
 
 *,
@@ -24,32 +29,37 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.vertical-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.modal {
+  background: white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.uploaded-image {
+  max-height: 120px;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.post-btn {
+  padding: 4px 12px;
+  border-radius: 24px;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+}
+
+.el-upload {
+  width: 100%;
+}
+
+.el-button {
+  width: 100%;
 }
 </style>
