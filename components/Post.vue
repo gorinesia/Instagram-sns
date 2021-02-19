@@ -12,36 +12,24 @@
       <img :src="post.image" alt="">
     </div>
     <div class="actions my-2 ml-4 flex">
-      <img src='/images/heart.svg' class="w-6 mr-3">
+      <img v-if="beLiked" src='/images/heart_active.svg' class="w-6 mr-3">
+      <img v-else src='/images/heart.svg' class="w-6 mr-3">
       <p>0</p>
     </div>
     <div class="message mx-4 text-sm">
-      <p :id="textId" :class="{'text-2xl': isTextBig}">{{ post.text}}</p>
+      <p>{{ post.text}}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      textId: 'textdayo',
-      isTextBig: false,
-      user: {
-        displayName: 'aki',
-        photoURL: '/images/post0.jpg'
-      },
-      post: {
-        text: '渋谷です',
-        image: '/images/post1.jpg'
-      }
-    }
-  },
+  props: ['post', 'user', 'beLiked'],
   computed: {
     username() {
       return this.user.displayName.charAt(0).toUpperCase() + this.user.displayName.slice(1)
     }
-  }
+  },
 }
 </script>
 
