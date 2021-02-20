@@ -6,11 +6,28 @@
 </template>
 
 <script>
-import AppFooter from '~/components/Footer.vue'
+import AppFooter from '~/components/Footer.vue';
+import { firebase, db } from '~/plugins/firebase';
+import { mapActions } from 'vuex';
 
 export default {
   components: {
     AppFooter
+  },
+  methods: {
+    ...mapActions(['setUser'])
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setUser(user)
+        db.collection('users').doc(user.uid).set({
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL
+        })
+      }
+    })
   }
 }
 </script>
